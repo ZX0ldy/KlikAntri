@@ -8,7 +8,7 @@
     <title>
         Klik Antri
     </title>
-    <link rel="shortcut icon" href="../assetsAdmin/images/icon/logo.svg" type="image/png">
+ <link rel="shortcut icon" href="../assetsAdmin/images/icon/logo-.svg" type="image/png">
     <!-- GOOGLE FONT -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -71,12 +71,11 @@
     .left-section {
         background: #ffffff;
         display: flex;
-        align-items: flex-end;
+        align-items: center;
         /* Mengatur gambar ke atas */
         justify-content: center;
-        width: 60%;
-        padding-bottom: 80px;
-        /* Menambahkan padding atas jika diperlukan */
+        width: 80%;
+
     }
 
     .left-section img {
@@ -132,11 +131,13 @@
     @media (max-width: 768px) {
         .left-section {
             display: none;
+            justify-content: center
         }
 
         .right-section {
             width: 100%;
         }
+
     }
 
     .login-input {

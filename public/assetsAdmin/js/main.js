@@ -82,3 +82,124 @@ document.querySelector('#sidebar-close').onclick = () => {
     sidebar_expand.classList.toggle('active')
     overlay.classList.toggle('active')
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Ambil URL halaman saat ini
+    const currentUrl = window.location.href;
+
+    // Cari semua link di sidebar
+    const menuLinks = document.querySelectorAll(".sidebar-menu li a");
+
+    // Loop untuk mencocokkan URL dan menambahkan class active
+    menuLinks.forEach(link => {
+        if (link.href === currentUrl) {
+            link.classList.add("active");
+        } else {
+            link.classList.remove("active");
+        }
+    });
+});
+
+// Pegawai Edit Jadwal
+document.addEventListener("DOMContentLoaded", function () {
+    // Pilih elemen yang diperlukan
+    const pilihPoli = document.getElementById("PilihPoli");
+    const pilihDokter = document.getElementById("PilihDokter");
+    const editJadwal = document.getElementById("EditJadwal");
+
+    const poliBoxes = document.querySelectorAll(".custom-box");
+    const backButton = document.getElementById("backButton");
+    const backToDokterButton = document.getElementById("backToDokterButton");
+    const editJadwalButton = document.querySelector(".gr-btn .btn"); // Tombol Edit Jadwal
+
+    // ✅ Klik Poli → Tampilkan Pilih Dokter
+    poliBoxes.forEach(box => {
+        box.addEventListener("click", function () {
+            pilihPoli.style.display = "none";
+            pilihDokter.style.display = "block";
+        });
+    });
+
+    // ✅ Klik Kembali di Pilih Dokter → Kembali ke Pilih Poli
+    backButton.addEventListener("click", function () {
+        pilihDokter.style.display = "none";
+        pilihPoli.style.display = "block";
+    });
+
+    // ✅ Klik Edit Jadwal → Buka Halaman Edit Jadwal
+    editJadwalButton.addEventListener("click", function () {
+        pilihDokter.style.display = "none";
+        editJadwal.style.display = "block";
+    });
+
+    // ✅ Klik Kembali di Edit Jadwal → Kembali ke Pilih Dokter
+    backToDokterButton.addEventListener("click", function () {
+        editJadwal.style.display = "none";
+        pilihDokter.style.display = "block";
+    });
+});
+
+// Event listener untuk memilih Poli
+const poliItems = document.querySelectorAll(".custom-box");
+poliItems.forEach(item => {
+    item.addEventListener('click', function () {
+        // Menyembunyikan Pilih Poli dan Menampilkan Pilih Dokter
+        pilihPoli.style.display = 'none';
+        pilihDokter.style.display = 'block';
+
+        // Menyesuaikan judul berdasarkan Poli yang dipilih
+        const poliName = item.querySelector('h3').innerText;
+        document.querySelector('.main-title').innerText = `Edit Jadwal - ${poliName}`;
+    });
+});
+
+// Event listener untuk kembali ke Pilih Poli
+backButton.addEventListener('click', function () {
+    // Menampilkan Pilih Poli dan Menyembunyikan Pilih Dokter
+    pilihPoli.style.display = 'block';
+    pilihDokter.style.display = 'none';
+
+    // Reset judul kembali ke "Edit Jadwal"
+    document.querySelector('.main-title').innerText = 'Edit Jadwal';
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    let days = document.querySelectorAll(".day");
+    let times = document.querySelectorAll(".time");
+
+    let schedule = {};
+
+    // Debugging: Periksa apakah elemen times terdeteksi
+    console.log("Times:", times);
+
+    times.forEach(time => {
+        let day = time.getAttribute("data-day");
+        let timeText = time.textContent.trim();
+        
+        console.log(`Day: ${day}, Time: "${timeText}"`); // Debugging
+
+        // Jika ada jam praktek, tandai sebagai true
+        if (timeText !== "") {
+            schedule[day] = true;
+        }
+    });
+
+    console.log("Schedule:", schedule); // Debugging
+
+    days.forEach(day => {
+        let dayName = day.getAttribute("data-day");
+        
+        console.log(`Checking ${dayName}:`, schedule[dayName]); // Debugging
+
+        if (schedule[dayName]) {
+            day.style.backgroundColor = "rgba(22, 120, 242, 0.2)";
+            day.style.color = "#000";
+            day.style.pointerEvents = "auto";
+        } else {
+            day.style.backgroundColor = "#ccc";
+            day.style.color = "white";
+            day.style.pointerEvents = "none";
+        }
+    });
+});

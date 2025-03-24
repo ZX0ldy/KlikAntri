@@ -18,6 +18,18 @@
                         <span>Tambah Pegawai</span>
                     </a>
                 </li>
+            {{-- <li>
+                    <a href="/admin/editjadwal">
+                        <i class='bx bxs-person'></i>
+                        <span>Edit Jadwal Dokter</span>
+                    </a>
+                </li> --}}
+                <li>
+                    <a href="/admin/edittampilan">
+                        <i class='bx bx-reset'></i>
+                        <span>Kelola Tampilan</span>
+                    </a>
+                </li>
                 <li>
                     <a href="/admin/tabelpegawai">
                         <i class='bx bxs-user-rectangle' ></i>
@@ -27,19 +39,9 @@
                 <li>
                     <a href="/admin/loket">
                         <i class='bx bx-purchase-tag-alt'></i>
-                        <span>Kelola Loket</span>
+                        <span>Kelola Poli</span>
                     </a>
                 </li>
-
-                <li>
-                    <a class="darkmode-toggle" id="darkmode-toggle" onclick="switchTheme()">
-                        <div>
-                            <i class='bx bx-cog mr-10'></i>
-                            <span>Darkmode</span>
-                        </div>
-
-                        <span class="darkmode-switch"></span>
-                    </a>
                 </li>
             </ul>
         </div>

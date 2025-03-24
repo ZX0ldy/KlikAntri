@@ -1,59 +1,57 @@
 <?php
-
 namespace App\Models;
-
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
     protected $fillable = [
-        'role_id',
-        'akses_poli_id',
         'name',
         'email',
         'password',
+        'role_id',
+        'akses_poli_id',
+        'foto',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
-
     public function role()
     {
-        return $this->belongsTo(Role::class, 'role_id', 'id');
+        return $this->belongsTo(Role::class, 'role_id'); // Pastikan foreign key benar
     }
-    public function akses()
+
+    // Relasi ke Poli
+    public function poli()
     {
-        return $this->belongsTo(Poli::class, 'akses_poli_id', 'id');
+        return $this->belongsTo(Poli::class, 'akses_poli_id');
+    }
+
+    public function antrians()
+    {
+        return $this->hasMany(Antrian::class);
+    }
+
+    public function rujukans()
+    {
+        return $this->hasMany(Rujukan::class, 'dokter_id');
+    }
+
+    // Relasi ke jadwal dokter
+    public function jadwals()
+    {
+        return $this->hasMany(JadwalDokter::class, 'dokter_id');
+    }
+
+    // Helper method untuk mendapatkan status jadwal berdasarkan hari
+    public function getJadwalStatus($hari)
+    {
+        $jadwal = $this->jadwals()->where('hari', $hari)->first();
+        return $jadwal ? $jadwal->status : false;
     }
 }

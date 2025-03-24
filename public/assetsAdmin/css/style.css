@@ -45,7 +45,7 @@
     --sidebar-logo-size: 80px;
     --profile-image-size: 45px;
     --main-header-height: 100px;
-    --shadow: 0 0 50px 0px rgb(42, 89, 152/ 10%);
+    --shadow: 0 50px 50px 50px rgb(42, 89, 152/ 10%);
     --shadow2: 0 0 50px 0px rgb(42, 89, 152/ 5%);
     --darkmode-toggle-size: 20px;
     --bs-yellow: #FFBF3A;
@@ -367,6 +367,16 @@ h6,
 .fs-16 {
     font-size: 16px !important;
     line-height: 1.6;
+}
+
+.fs-50 {
+    font-size: 50px !important;
+    line-height: 1.5;
+}
+
+.fs-100 {
+    font-size: 100px !important;
+    line-height: 1.5;
 }
 
 @media only screen and (max-width: 575px) {
@@ -1381,6 +1391,11 @@ ul {
     }
 }
 
+.custom-border {
+    border: 1px solid #3A8EF6;
+    border-radius: 10px;
+}
+
 .border-primary {
     border-color: var(--main-color) !important;
 }
@@ -1427,6 +1442,40 @@ textarea,
 select {
     margin-bottom: 20px;
 }
+
+/* Styling untuk input time agar menyerupai gambar */
+input[type="time"] {
+    -webkit-appearance: none;
+    /* Hilangkan tampilan default di browser WebKit */
+    -moz-appearance: none;
+    /* Hilangkan tampilan default di Firefox */
+    appearance: none;
+    /* Hilangkan tampilan default */
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 2px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 15px;
+    width: 150px;
+}
+
+/* Menghilangkan ikon bawaan pada beberapa browser */
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+/* Hover dan fokus efek */
+input[type="time"]:hover,
+input[type="time"]:focus {
+    border-color: #4A90E2;
+    /* Warna biru saat fokus/hover */
+    outline: none;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+    /* Efek glow lembut */
+}
+
 
 /* Gaya untuk input file */
 .file-input {
@@ -1834,7 +1883,7 @@ button#page-header-user-dropdown {
     /* height: 60px;
     width: 60px;
     background-color: #f6f6f6;
-    padding: 3px 
+    padding: 3px
 } */
 
 .noti-icon i {
@@ -2107,6 +2156,25 @@ button#page-header-user-dropdown {
     border-radius: var(--box-border-radius);
 }
 
+.custom-box {
+    background-color: var(--box-bg);
+    padding: 25px;
+    box-shadow: var(--shadow);
+    border-radius: var(--box-border-radius);
+    transition: background 0.5s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-box:hover {
+    background: linear-gradient(120deg, #3A8EF6 1%, #5661F8 70%);
+    color: white;
+    transform: translateY(-5px);
+    /* Efek melayang */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+    /* Efek shadow saat hover */
+}
+
+
+
 .counter-title {
     margin-bottom: 20px;
     text-transform: capitalize;
@@ -2131,7 +2199,7 @@ button#page-header-user-dropdown {
 }
 
 
-/* 
+/*
 .box-body {
     padding: 20px 0;
 } */
@@ -2262,6 +2330,35 @@ table td {
     overflow-y: auto;
 } */
 
+.day {
+    font-size: 15px;
+    padding: 0%;
+    cursor: pointer !important;
+    bottom: -50px !important;
+}
+
+.time {
+    font-size: 15px;
+    padding: 0%;
+}
+
+.detail-image {
+    width: auto;
+    height: 35vh;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.border-custom {
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    width: clamp(40px, 8vw, 100px);
+}
+
+.card {
+    border-radius: 10px;
+}
+
 .box.card-box {
     display: flex;
     justify-content: space-between;
@@ -2323,7 +2420,7 @@ table td {
 
 /* ul.card-list {
     /* display: flex;
-    align-items: right; 
+    align-items: right;
 }  */
 
 ul.card-list li.custom-label {
@@ -2810,7 +2907,7 @@ select.select {
 }
 
 
-/* 
+/*
 .cal-icon {
     position: relative;
     width: 100%;
@@ -2858,7 +2955,7 @@ select.select {
 ====================================================================
 
 ***/
-/* 
+/*
 .search-form {
     background: #F9FAFE;
     border-radius: 5px;
@@ -3670,7 +3767,7 @@ select.select {
 }
 
 
-/* 
+/*
 .cal-icon {
     position: relative;
     width: 100%;
@@ -4775,23 +4872,29 @@ tr.top {
 }
 
 tr.top th:first-child {
-    border-top-left-radius: 8px; /* Membulatkan sudut kiri atas */
+    border-top-left-radius: 8px;
+    /* Membulatkan sudut kiri atas */
     border-bottom-left-radius: 8px;
 }
 
 tr.top th:last-child {
-    border-top-right-radius: 8px; /* Membulatkan sudut kanan atas */
-    border-bottom-right-radius: 8px; /* Membulatkan sudut kanan bawah */
+    border-top-right-radius: 8px;
+    /* Membulatkan sudut kanan atas */
+    border-bottom-right-radius: 8px;
+    /* Membulatkan sudut kanan bawah */
 }
 
 tr td:first-child {
-    border-top-left-radius: 8px; /* Membulatkan sudut kiri atas */
+    border-top-left-radius: 8px;
+    /* Membulatkan sudut kiri atas */
     border-bottom-left-radius: 8px;
 }
 
 tr td:last-child {
-    border-top-right-radius: 8px; /* Membulatkan sudut kanan atas */
-    border-bottom-right-radius: 8px; /* Membulatkan sudut kanan bawah */
+    border-top-right-radius: 8px;
+    /* Membulatkan sudut kanan atas */
+    border-bottom-right-radius: 8px;
+    /* Membulatkan sudut kanan bawah */
 }
 
 table tbody {
@@ -5024,15 +5127,36 @@ td {
     color: #fff;
     border: none;
     border-radius: 30px;
-    padding: 15px 30px;
-    font-size: 15px;
-    transition: background 0.3s ease;
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: background 0.5s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
     vertical-align: middle;
 }
 
 .gr-btn .btn:hover {
     background: linear-gradient(120deg, #5661F8 50%, #3A8EF6 100%);
     color: #fff;
+    transform: translateY(-5px);
+}
+
+.gr-btn2 .btn {
+    background: white;
+    color: black;
+    box-shadow: 0 10px 20px 0 rgba(196, 200, 208, 0.4);
+    border: none;
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: background 0.5s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+    vertical-align: middle;
+}
+
+.gr-btn2 .btn:hover {
+    background: linear-gradient(120deg, #3A8EF6 50%, #5661F8 100%);
+    color: #fff;
+    transform: translateY(-5px);
 }
 
 .user-profile .table td {
@@ -5385,7 +5509,7 @@ body.dark .notification-list .list .no-seen {
 
 .switch {
     --inactive-bg: #cfd8dc;
-    --active-bg: #00e676;
+    --active-bg: #3A8EF6;
     --size: 2rem;
     appearance: none;
     width: calc(var(--size) * 2.2);
@@ -5413,6 +5537,18 @@ body.dark .notification-list .list .no-seen {
     flex-wrap: wrap;
 }
 
+/* CSS untuk mengurangi jarak antara hari dan jam praktek */
+.schedule-row .day,
+.schedule-row .time {
+    height: 30px;
+    /* Sesuaikan tinggi sesuai kebutuhan */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px 0;
+    /* Sesuaikan margin jika diperlukan */
+}
+
 .col-lg-3,
 .col-md-4,
 .col-sm-6 {
@@ -5420,6 +5556,27 @@ body.dark .notification-list .list .no-seen {
     /* Kolom akan mengisi ruang yang tersedia */
     margin-bottom: 1rem;
     /* Spasi antar kolom */
+}
+
+
+@media (max-width: 1200px) {
+
+    .col-lg-3:last-child,
+    .col-md-4:last-child,
+    .col-sm-6:last-child {
+        flex-basis: 100%;
+        /* Kolom terakhir memanjang sepenuhnya */
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .row .col-lg-3:last-child,
+    .row .col-md-4:last-child,
+    .row .col-sm-6:last-child {
+        flex-basis: calc(25% - 1rem);
+        /* Lebar kolom terakhir menjadi 25% minus margin */
+    }
 }
 
 /* Media query untuk layar yang lebih besar dari 768px */

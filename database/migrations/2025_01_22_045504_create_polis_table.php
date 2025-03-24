@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('polis', function (Blueprint $table) {
             $table->id();
             $table->string('nama_poli');
-            $table->string('background_image');
             $table->string('icon_image');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
+
     }
     /**
      * Reverse the migrations.

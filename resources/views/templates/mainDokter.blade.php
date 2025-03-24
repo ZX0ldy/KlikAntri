@@ -8,7 +8,7 @@
     <title>
         Klik Antri
     </title>
-    <link rel="shortcut icon" href="../assetsAdmin/images/icon/logo.svg" type="image/png">
+    <link rel="shortcut icon" href="../assetsAdmin/images/icon/logo-.svg" type="image/png">
     <!-- GOOGLE FONT -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -21,12 +21,14 @@
     <link rel="stylesheet" href="../assetsAdmin/libs/datatable/css/dataTables.bootstrap5.css">
     <link rel="stylesheet" href="../assetsAdmin/libs/rating/css/rating-themes.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    
+
     <!-- APP CSS -->
     <link rel="stylesheet" href="../assetsAdmin/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assetsAdmin/css/grid.css">
     <link rel="stylesheet" href="../assetsAdmin/css/style.css">
     <link rel="stylesheet" href="../assetsAdmin/css/responsive.css">
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <style>
         .row {
@@ -147,11 +149,12 @@
 </head>
 
 
-@include('partials.headerDokter')
+@include('partials.headerRole')
 
 @yield('content')
 
 <body class="sidebar-expand">
+<div class="wrapper">
 <div class="overlay"></div>
 
     <!-- SCRIPT -->

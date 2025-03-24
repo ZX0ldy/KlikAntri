@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Klik Antri +</title>
+    <title>Rumah Sakit</title>
     <meta name="author" content="Mediax">
     <meta name="description" content="Mediax - Health & Medical HTML Template">
     <meta name="keywords" content="Mediax - Health & Medical HTML Template">
@@ -23,9 +23,12 @@
 	============================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?
+        family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&
+        family=Outfit:wght@300;400;500;600;700;800;900&
+        family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 
     <!--==============================
 	    All CSS File
@@ -45,336 +48,68 @@
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css">
     <!-- ...existing code... -->
-    <style>
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .th-hero-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: -90px;
-            /* Geser background ke atas */
-            overflow: hidden;
-            /* Mencegah elemen keluar dari area */
-        }
-
-        .th-hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('assets/bg/imagebg.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            opacity: 0.5;
-            /* Opacity hanya berlaku untuk latar belakang */
-            filter: brightness(0.8);
-            /* Opsional: Menyesuaikan kecerahan jika diperlukan */
-            pointer-events: none;
-            /* Menghindari interaksi dengan latar belakang */
-        }
-
-        .container {
-            position: relative;
-            /* Memastikan elemen ini tetap berada di atas latar belakang */
-            color: #000;
-            /* Warna teks tetap terlihat jelas */
-        }
-
-        .hero-inner img {
-            width: auto;
-            height: auto;
-            max-width: 50%;
-            max-height: 50%;
-            min-width: 25%;
-            min-height: 25%;
-            object-fit: contain;
-        }
-
-        .hero-title {
-            background: linear-gradient(to right, #3A8EF6, #6F3AFA);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: bold;
-            /* Tambahkan ketebalan font */
-        }
-
-        .hero-text {
-            color: #333;
-            /* Pastikan teks tetap terlihat jelas */
-            font-size: 1rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .btn-custom {
-            background: linear-gradient(120deg, #3A8EF6 50%, #5661F8 100%);
-            border-radius: 30px;
-            color: white;
-        }
-
-        /* Mengatur tinggi card agar konsisten */
-        .card {
-            height: 300px;
-            width: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: 30px;
-        }
-
-        /* Menyesuaikan tinggi gambar agar proporsional */
-        .card-img-top {
-            height: 200px;
-            object-fit: cover;
-            border-radius: 30px 30px 0 0;
-        }
-
-        /* Text berada di bawah */
-        .card-text {
-            text-align: center;
-            margin-top: auto;
-        }
-
-        .custom-modal-width {
-            max-width: 80%;
-            /* Atur lebar modal sesuai kebutuhan */
-        }
-
-        .biru {
-            color: #3A8EF6;
-        }
-
-        .bg-blue {
-            background-color: rgba(22, 120, 242, 1) !important;
-            /* Warna biru dengan opacity 100% */
-            color: white;
-        }
-
-        .bg-blue-opacity {
-            background-color: rgba(22, 120, 242, 0.2);
-            /* Warna biru dengan opacity 20% */
-        }
-
-        .bg-disabled {
-            background-color: #ccc;
-            /* Warna abu-abu untuk disabled */
-            pointer-events: none;
-            /* Disable pointer events */
-            color: white;
-            /* Warna teks putih */
-        }
-
-        .section {
-            will-change: transform;
-        }
-
-        .th-header {
-            color: #6C87AE;
-        }
-
-        .th-header a {
-            color: #6C87AE;
-        }
-
-        .th-header b {
-            color: #6C87AE;
-        }
-
-        .faq-section {
-            padding: 50px 15px;
-        }
-
-        .faq-section .sec-title {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .faq-section .accordion-button {
-            background-color: white;
-            color: #333;
-            font-weight: bold;
-            box-shadow: none;
-            border: none;
-            padding: 15px 20px;
-            border-radius: 8px;
-            text-align: left;
-            display: flex;
-            align-items: center;
-        }
-
-        .faq-section .accordion-button:focus {
-            box-shadow: none;
-        }
-
-        .faq-section .accordion-button:not(.collapsed) {
-            background-color: #f1f5f9;
-            color: #0d6efd;
-        }
-
-        .faq-section .accordion-icon {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-right: 15px;
-        }
-
-        .faq-section .accordion-item {
-            border: none;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .faq-section .accordion-body {
-            padding: 15px;
-            font-size: 0.95rem;
-            color: #555;
-        }
-
-        .modal-content {
-            border-radius: 20px;
-        }
-
-        .modal-backdrop {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .modal-header {
-            border: none;
-            padding: 10px;
-            width: 100%;
-            text-align: center;
-            border-radius: 20px 20px 0 0;
-            font-size: 1.2rem;
-        }
-
-        .custom-modal-size {
-            max-width: 80%;
-            width: 60rem;
-            height: 10vh;
-            /* Tinggi akan menyesuaikan konten */
-            margin: auto;
-            /* Pusatkan modal */
-        }
-
-        .custom-modal-size-2 {
-            max-width: 80%;
-            width: 60rem;
-            height: 100px;
-            margin: auto;
-        }
-
-        @media (max-width: 768px) {
-            .custom-modal-size {
-                max-width: 95%;
-                /* Sesuaikan modal untuk layar kecil */
-                width: auto;
-            }
-
-            .modal-header {
-                font-size: 1rem;
-                /* Ukuran font lebih kecil untuk layar kecil */
-            }
-        }
-
-        .doc-img {
-            max-width: 200px;
-            width: 200px;
-            height: 250px;
-        }
-
-        .detail-image {
-            padding-right: 20px;
-        }
-
-        .main-title {
-            display: flex;
-            background: linear-gradient(120deg, #3A8EF6 1%, #5661F8 70%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: bold;
-        }
-
-        .title2 {
-            background: linear-gradient(120deg, #3A8EF6 1%, #5661F8 70%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .day{
-            font-size: 15px;
-            padding: 0%;
-        }
-        
-        .time{
-            font-size: 15px;
-            padding: 0%;
-        }
-    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
 <body>
-    <!-- Modal nomorAntrianModal -->
-    <div class="modal fade" id="nomorAntrianModal" tabindex="-1" aria-labelledby="fotoModalLabel" aria-hidden="true"
-        data-bs-backdrop="true">
-        <div class="modal-dialog custom-modal-size modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="modal-header">
-                            <h4 class="main-title">Poli Gigi</h4>
-                        </div>
-                        <div class="row g-3 justify-content-center">
-                            <div class="col-4 text-center doc-img">
-                                <img src="assets/photos/drg.Jennie.png" class="card-img" alt="Foto 1"
-                                    onclick="showDetailModal('assets/photos/drg.Jennie.png', 'DR. Jennie')">
-                                <p>Dokter</p>
-                            </div>
-                            <div class="col-4 text-center doc-img">
-                                <img src="assets/photos/drg.Lisa.png" class="card-img" alt="Foto 2"
-                                    onclick="showDetailModal('assets/photos/drg.Lisa.png', 'DR. Lisa')">
-                                <p>Dokter</p>
-                            </div>
-                            <div class="col-4 text-center doc-img">
-                                <img src="assets/photos/drg.Rose.png" class="card-img" alt="Foto 3"
-                                    onclick="showDetailModal('assets/photos/drg.Rose.png', 'DR. Rose')">
-                                <p>Dokter</p>
-                            </div>
-                        </div>
+    <div class="modal fade" id="reservasiModal" tabindex="-1" aria-labelledby="reservasiModalLabel" aria-hidden="true"
+    data-bs-backdrop="true">
+    <div class="modal-dialog custom-modal-size modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="container">
+                    <div class="modal-header d-flex justify-content-between align-items-center w-100">
+                        <h5 class="main-title mb-0 fw-bold">Reservasi Online</h5>
+                        <span class="fs-6 fw-bold text-primary d-flex align-items-center" id="jamOperasional">
+                            <i class="bi bi-clock"></i> Jam Operasional:
+                            <span id="jam_buka" class="mx-1"></span> -
+                            <span id="jam_tutup" class="ms-1"></span>
+                        </span>
                     </div>
+
+                    <form id="reservasiForm" class="needs-validation" novalidate method="POST" action="{{ route('reservasi.store') }}">
+                        @csrf
+                        <input type="hidden" id="poliIdInput" name="poli_id" value="">
+
+                        <div class="row justify-content-center mt-3">
+                            <div class="col-12 mb-3">
+                                <label for="poliInput" class="form-label">Poli</label>
+                                <input type="text" class="form-control" id="poliInput" placeholder="" disabled>
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <label for="tanggal">Pilih Tanggal Daftar</label>
+                                <select name="tanggal" id="tanggal" class="form-select" required>
+                                    <!-- Options will be populated by JavaScript -->
+                                </select>
+                                <div class="invalid-feedback">
+                                    Silakan pilih tanggal kunjungan!
+                                </div>
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <label for="alasan" class="form-label">Alasan</label>
+                                <input type="text" class="form-control text-gray-200" id="nama" name="alasan" placeholder="Beri alasan.." required>
+                                <div class="invalid-feedback">
+                                    Alasan wajib diisi!
+                                </div>
+                                <span class="fs-6 fw-bold text-danger d-block mt-2" id="sisaKuota">
+                                    <i class="bi bi-people"></i> Kuota antrian tersisa: -
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-custom" id="downloadPDF">Submit</button>
+                        </div>
+                    </form>
+
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Modal detailModal -->
+</div>
+    <!-- Modal detailModal
     <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
         <div class="modal-dialog custom-modal-size-2 modal-dialog-centered">
             <div class="modal-content p-3">
@@ -389,31 +124,43 @@
                         </div>
                         <p class="mb-2">Jadwal Praktek</p>
                         <div class="row mb-2">
-                            <div class="col text-center border-custom rounded-pill mx-0 day" data-day="senin">Senin</div>
-                            <div class="col text-center border-custom rounded-pill mx-0 day" data-day="selasa">Selasa</div>
-                            <div class="col text-center border-custom rounded-pill mx-0 day" data-day="rabu">Rabu</div>
-                            <div class="col text-center border-custom rounded-pill mx-0 day" data-day="kamis">Kamis</div>
-                            <div class="col text-center border-custom rounded-pill mx-0 day" data-day="jumat">Jumat</div>
-                            <div class="col text-center border-custom rounded-pill mx-0 day" data-day="sabtu">Sabtu</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 day" data-day="senin">Senin
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 day" data-day="selasa">Selasa
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 day" data-day="rabu">Rabu
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 day" data-day="kamis">Kamis
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 day" data-day="jumat">Jumat
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 day" data-day="sabtu">Sabtu
+                            </div>
                         </div>
                         <div class="row mt-2 mb-4">
-                            <div class="col text-center border-custom rounded mx-0 time" data-day="senin">14.00-16.00</div>
-                            <div class="col text-center border-custom rounded mx-0 time" data-day="selasa">14.00-16.00</div>
-                            <div class="col text-center border-custom rounded mx-0 time" data-day="rabu">14.00-16.00</div>
-                            <div class="col text-center border-custom rounded mx-0 time" data-day="kamis">14.00-16.00</div>
-                            <div class="col text-center border-custom rounded mx-0 time" data-day="jumat"></div>
-                            <div class="col text-center border-custom rounded mx-0 time" data-day="sabtu">14.00-16.00</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 time" data-day="senin">14.00-16.00
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 time" data-day="selasa">14.00-16.00
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 time" data-day="rabu">14.00-16.00
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 time" data-day="kamis">14.00-16.00
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 time" data-day="jumat">
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 time" data-day="sabtu">14.00-16.00
+                            </div>
                         </div>
                         <div class="row mt-4">
                             <div class="col">
-                                <button type="button" class="btn btn-primary">Reservasi</button>
+                                <button type="button" class="btn btn-custom">Reservasi</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!--[if lte IE 9]>
     	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -421,7 +168,7 @@
 
 
     <!--********************************
-   		Code Start From Here 
+   		Code Start From Here
 	******************************** -->
 
     <!--==============================
@@ -458,7 +205,21 @@
 Hero Area
 ==============================-->
     <div class="th-hero-wrapper hero-2" id="hero">
-        <div class="th-hero-background"></div>
+        <div class="th-hero-bg">
+            @php
+            $backgroundMediaType = App\Models\Setting::getValue('background_media_type', 'image');
+            $backgroundMediaFile = App\Models\Setting::getValue('background_media', 'assets/bg/imagebg.png');
+        @endphp
+        @if($backgroundMediaType == 'image')
+            <img src="{{ asset('storage/' . $backgroundMediaFile) }}" alt="Background" class="poli-image">
+        @else
+            <video autoplay muted loop class="poli-video">
+                <source src="{{ asset('storage/' . $backgroundMediaFile) }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        @endif
+        </div>
+
         <div class="hero-inner">
             <div class="container">
                 <div class="text-center">
@@ -466,10 +227,10 @@ Hero Area
                         Selamat datang di
                         <img src="assets/logos/logo1380.png" alt="KlikAntri" class="w-25 h-25 mb-4 ms-3">
                     </h1>
-                    <h6 class="hero-text fw-bold">
+                    <p class="hero-text">
                         Rumah sakit adalah bagian integral dari suatu organisasi sosial dan kesehatan
                         <br> dengan fungsi menyediakan pelayanan paripurna (komprehensif).
-                    </h6>
+                    </p>
                 </div>
             </div>
         </div>
@@ -487,21 +248,24 @@ Hero Area
                 </div>
             </div>
             <div class="row gy-4 justify-content-center">
-            @foreach($polis as $poli)
-                <div class="col-xl-3 col-lg-4 col-sm-6">
-                    <div class="service-card">
-                        <div class="box-shape">
-                            <img src="assets/img/bg/service_card_bg.png" alt="Service">
+                @foreach($polis as $poli)
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="service-card">
+                            <div class="box-shape">
+                                <img src="assetsLanding/img/bg/service_card_bg.png" alt="Service">
+                            </div>
+                            <div class="box-icon">
+                                <img src="{{ asset($poli->icon_image) }}" alt="Icon">
+                            </div>
+                            <h3 class="box-title">{{ $poli->nama_poli }}</h3>
+                            <button type="button" class="btn btn-custom f-bold"
+                                onclick="showReservasiModal({{ $poli->id }}, '{{ $poli->nama_poli }}', '{{ $poli->jam_buka }}', '{{ $poli->jam_tutup }}', {{ $poli->kuota_tersisa }})">
+                                Ambil Nomor
+                            </button>
                         </div>
-                        <div class="box-icon">
-                            <img src="{{ asset($poli->icon_image) }}" alt="Icon">
-                        </div>
-                        <!-- <h3><a>{{ $poli->nama_poli }}</a></h3> -->
-                        <h3 class="box-title">{{ $poli->nama_poli }}</h3>
-                        <a href="#" class="btn btn-custom f-bold" onclick="showNomorAntrianModal()">Ambil Nomor</a>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+
             </div>
     </section>
 
@@ -580,7 +344,7 @@ Hero Area
             <div class="container">
                 <div class="row gy-2 align-items-center">
                     <div class="col-md-7">
-                        <p class="copyright-text">Copyright <i class="fal fa-copyright"></i> 2025 Klik Antri +.</p>
+                        <p class="copyright-text">Copyright <i class="fal fa-copyright"></i> 2025 KlikAntri + </p>
                     </div>
                     <div class="col-md-5 text-center text-md-end">
                         <div class="th-social">
@@ -596,7 +360,7 @@ Hero Area
     </footer>
 
     <!--********************************
-			Code End  Here 
+			Code End  Here
 	******************************** -->
 
     <!-- Scroll To Top -->
@@ -632,100 +396,404 @@ Hero Area
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.js"></script>
     <!-- Bootstrap Js File -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- First Script Block -->
+<script>
+    function showReservasiModal(poliId, poliName, jamBuka, jamTutup, kuotaTersisa) {
+        // Set poli_id di input hidden
+        document.getElementById('poliIdInput').value = poliId;
 
-    <!-- Main Js File -->
-    <script>
-        window.addEventListener('scroll', function () {
-            var header = document.querySelector('.header-wrapper');
-            var scrollPosition = window.scrollY;
+        // Tampilkan nama poli di input teks
+        document.getElementById('poliInput').value = poliName;
 
-            if (scrollPosition > header.offsetHeight) {
-                header.style.marginTop = '0';
-            } else {
-                header.style.marginTop = '100vh'; // Menggunakan viewport height untuk tinggi hero
+        // Set jam buka dan jam tutup di modal
+        document.getElementById('jam_buka').textContent = jamBuka || 'N/A';
+        document.getElementById('jam_tutup').textContent = jamTutup || 'N/A';
+
+        // Set kuota antrean tersisa
+        document.getElementById('sisaKuota').innerHTML = `<i class="bi bi-people"></i> Kuota antrian tersisa: ${kuotaTersisa >= 0 ? kuotaTersisa : 0}`;
+
+        // Pastikan event listener untuk submit hanya ditambahkan sekali
+        let form = document.getElementById('reservasiForm');
+        form.onsubmit = function(event) {
+            let poliIdValue = document.getElementById('poliIdInput').value;
+
+            if (!poliIdValue) {
+                event.preventDefault(); // Mencegah form terkirim jika poli_id kosong
+                console.error("poli_id tidak terisi!");
+
+                // Replace alert with SweetAlert2
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Terjadi kesalahan: poli_id tidak ditemukan. Silakan pilih poli kembali.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
             }
-        });
-    </script>
+        };
 
-    <script>
-        function showNomorAntrianModal() {
-            const modal = new bootstrap.Modal(document.getElementById('nomorAntrianModal'));
-            modal.show();
+        // Buka modal
+        let modal = new bootstrap.Modal(document.getElementById('reservasiModal'));
+        modal.show();
+    }
+</script>
+
+<!-- Reservation Script -->
+<script>
+    // Reservation handling script for KlikAntri
+    document.addEventListener("DOMContentLoaded", function() {
+        // Initialize the reservation form functionality
+        initReservationSystem();
+    });
+
+    function initReservationSystem() {
+        // Elements
+        const reservasiForm = document.getElementById("reservasiForm");
+        const downloadPDFBtn = document.getElementById("downloadPDF");
+        const poliInput = document.getElementById("poliInput");
+        const tanggalSelect = document.getElementById("tanggal");
+        const alasanInput = document.getElementById("nama"); // Note: id "nama" is used for "alasan"
+
+        // Populate dates (today and tomorrow)
+        populateDates();
+
+        // Handle form submission
+        if (downloadPDFBtn) {
+            downloadPDFBtn.addEventListener("click", function(event) {
+                handleReservationSubmit(event);
+            });
         }
-    </script>
 
-    <script>
-        function showDetailModal(imageSrc, doctorName) {
-            const detailImage = document.getElementById('detailImage');
-            detailImage.src = imageSrc;
-            const doctorNameElement = document.getElementById('doctorName');
-            doctorNameElement.textContent = doctorName;
-            const detailModal = new bootstrap.Modal(document.getElementById('detailModal'));
-            detailModal.show();
-        }
-    </script>
-
-    <script>
-        function showDetailModal(imageSrc, doctorName) {
-            const detailImage = document.getElementById('detailImage');
-            detailImage.src = imageSrc;
-            const doctorNameElement = document.getElementById('doctorName');
-            doctorNameElement.textContent = doctorName;
-
-            // Update day background colors based on time availability
-            document.querySelectorAll('.day').forEach(dayElement => {
-                const day = dayElement.getAttribute('data-day');
-                const timeElement = document.querySelector(`.time[data-day="${day}"]`);
-                if (timeElement && timeElement.textContent.trim() !== '') {
-                    dayElement.classList.add('bg-blue-opacity');
-                    dayElement.classList.remove('bg-disabled');
-                } else {
-                    dayElement.classList.add('bg-disabled');
-                    dayElement.classList.remove('bg-blue-opacity');
+        // Form validation setup
+        if (reservasiForm) {
+            reservasiForm.addEventListener('submit', function(event) {
+                if (!this.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
                 }
+                this.classList.add('was-validated');
+            });
+        }
+    }
+
+    function populateDates() {
+        const tanggalSelect = document.getElementById("tanggal");
+        if (!tanggalSelect) return;
+
+        // Clear existing options
+        tanggalSelect.innerHTML = "";
+
+        // Get today and tomorrow dates
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(today.getDate() + 1);
+
+        // Format dates
+        const todayFormatted = formatDate(today);
+        const tomorrowFormatted = formatDate(tomorrow);
+
+        // Add options
+        const todayOption = document.createElement("option");
+        todayOption.value = formatDateValue(today);
+        todayOption.textContent = `Hari Ini (${todayFormatted})`;
+        tanggalSelect.appendChild(todayOption);
+
+        const tomorrowOption = document.createElement("option");
+        tomorrowOption.value = formatDateValue(tomorrow);
+        tomorrowOption.textContent = `Besok (${tomorrowFormatted})`;
+        tanggalSelect.appendChild(tomorrowOption);
+    }
+
+    function formatDate(date) {
+        const day = date.getDate();
+        const monthNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni",
+                           "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+        const month = monthNames[date.getMonth()];
+        const year = date.getFullYear();
+
+        return `${day} ${month} ${year}`;
+    }
+
+    function formatDateValue(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+
+        return `${year}-${month}-${day}`;
+    }
+
+    function handleReservationSubmit(event) {
+        // Get form elements
+        const poliInput = document.getElementById("poliInput");
+        const tanggalSelect = document.getElementById("tanggal");
+        const alasanInput = document.getElementById("nama");
+        const downloadPDFBtn = document.getElementById("downloadPDF");
+        const reservasiForm = document.getElementById("reservasiForm");
+
+        // Validate required fields
+        if (!alasanInput.value.trim()) {
+            event.preventDefault();
+            alasanInput.classList.add("is-invalid");
+
+            Swal.fire({
+                title: 'Error!',
+                text: 'Alasan wajib diisi sebelum melanjutkan.',
+                icon: 'error',
+                confirmButtonText: 'OK'
             });
 
-            const detailModal = new bootstrap.Modal(document.getElementById('detailModal'));
-            detailModal.show();
+            alasanInput.focus();
+            return;
         }
 
-        // Handle day click to toggle background color between blue with 100% opacity and blue with 20% opacity
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.day').forEach(dayElement => {
-                dayElement.addEventListener('click', () => {
-                    if (!dayElement.classList.contains('bg-disabled')) {
-                        document.querySelectorAll('.day').forEach(el => {
-                            el.classList.remove('bg-blue');
-                            el.classList.add('bg-blue-opacity');
-                        });
-                        dayElement.classList.remove('bg-blue-opacity');
-                        dayElement.classList.add('bg-blue');
-                    }
+        // Form is valid, proceed with submission
+        alasanInput.classList.remove("is-invalid");
+
+        // Get CSRF token
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        // Show loading state
+        downloadPDFBtn.disabled = true;
+        downloadPDFBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Memproses...';
+
+        // Create FormData for AJAX submission
+        const formData = new FormData();
+        formData.append('poli_id', document.getElementById('poliIdInput').value);
+        formData.append('tanggal', tanggalSelect.value);
+        formData.append('alasan', alasanInput.value);
+        formData.append('_token', csrfToken);
+
+        // Send AJAX request to Laravel backend
+        fetch('/reservasi/store', {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': csrfToken
+            },
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                // Generate and download PDF with the returned queue number
+                createPDF({
+                    poli_name: poliInput.value,
+                    tanggal_text: tanggalSelect.options[tanggalSelect.selectedIndex].text,
+                    alasan: alasanInput.value,
+                    nomor_antrian: data.data.nomor_antrian
                 });
-            });
-        });
-    </script>
 
-    <script>
-        // Perbaikan untuk ikon + dan -
-        const accordionButtons = document.querySelectorAll('.accordion-button');
-
-        accordionButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Atur ulang semua ikon ke +
-                accordionButtons.forEach(btn => {
-                    const icon = btn.querySelector('.accordion-icon');
-                    icon.textContent = '+';
+                // Show success message
+                Swal.fire({
+                    title: 'Berhasil!',
+                    text: 'Reservasi berhasil dibuat. Nomor antrian Anda: ' + data.data.nomor_antrian,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
                 });
 
-                // Ubah ikon pada tombol yang aktif ke -
-                if (!button.classList.contains('collapsed')) {
-                    const icon = button.querySelector('.accordion-icon');
-                    icon.textContent = '-';
+                // Close modal
+                const reservasiModal = bootstrap.Modal.getInstance(document.getElementById("reservasiModal"));
+                if (reservasiModal) {
+                    reservasiModal.hide();
                 }
+
+                // Reset form
+                reservasiForm.reset();
+            } else {
+                Swal.fire({
+                    title: 'Error!',
+                    text: data.message || 'Terjadi kesalahan saat membuat reservasi.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
+        })
+        .catch(error => {
+            console.error("Error saving reservation:", error);
+            Swal.fire({
+                title: 'Error!',
+                text: 'Terjadi kesalahan saat mengirim data. Silakan coba lagi.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        })
+        .finally(() => {
+            // Reset button state
+            downloadPDFBtn.disabled = false;
+            downloadPDFBtn.innerHTML = 'Submit';
+        });
+    }
+
+    // Replace this event listener to use SweetAlert2
+    document.getElementById('reservasiForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Mencegah submit default
+
+        let formData = new FormData(this);
+
+        fetch(this.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Replace alert with SweetAlert2
+                Swal.fire({
+                    title: 'Berhasil!',
+                    text: 'Reservasi berhasil dibuat!',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+
+                // Panggil fungsi untuk membuat PDF
+                createPDF({
+                    alasan: data.data.alasan,
+                    poli_name: data.data.poli_name,
+                    tanggal_text: data.data.tanggal,
+                    nomor_antrian: data.data.nomor_antrian
+                });
+
+                // REMOVED REDIRECT CODE HERE
+                // Now the user will stay on the same page
+            } else {
+                // Replace alert with SweetAlert2
+                Swal.fire({
+                    title: 'Gagal!',
+                    text: data.message || 'Terjadi kesalahan saat membuat reservasi.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Replace alert with SweetAlert2
+            Swal.fire({
+                title: 'Error!',
+                text: 'Terjadi kesalahan saat mengirim data. Silakan coba lagi.',
+                icon: 'error',
+                confirmButtonText: 'OK'
             });
         });
-    </script>
+    });
+
+    // Enhanced PDF generation function
+    function createPDF(data) {
+        // Make sure jsPDF is properly loaded
+        if (typeof window.jspdf === 'undefined') {
+            console.error('jsPDF is not loaded properly');
+
+            // Replace alert with SweetAlert2
+            Swal.fire({
+                title: 'Error!',
+                text: 'Tidak dapat membuat PDF: jsPDF tidak tersedia',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
+
+        try {
+            // Use jsPDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const pageWidth = doc.internal.pageSize.width;
+
+            // Function to center text
+            function centerText(text, y, fontSize = 12) {
+                doc.setFontSize(fontSize);
+                const textWidth = doc.getTextWidth(text);
+                doc.text(text, (pageWidth - textWidth) / 2, y);
+            }
+
+            doc.setFont("courier", "bold");
+            doc.setFontSize(12);
+
+            centerText("TIKET ANTREAN", 30, 16);
+            centerText("Jl. Kemarau Selatan No. 32 - Kota Malang 65141 Indonesia", 40, 10);
+            centerText("Telp: +163 654 3569 Email : inforumahsakit@gmail.com", 45, 10);
+
+            doc.line(20, 50, 190, 50); // Divider line
+
+            // Add patient name/reason to PDF
+            centerText("ALASAN: " + data.alasan, 60, 12);
+
+            // Add polyclinic to PDF
+            centerText("POLI: " + data.poli_name, 70, 12);
+
+            // Add date to PDF
+            centerText("TANGGAL: " + data.tanggal_text, 80, 12);
+
+            centerText("NOMOR ANTRIAN:", 90, 12);
+            centerText(data.nomor_antrian, 105, 35); // Make queue number larger
+
+            centerText("JAM PELAYANAN", 125, 12);
+            centerText("001 - 010 : 09:00 - 11:30", 135, 12);
+            centerText("011 - 020 : 13:00 - 15:30", 145, 12);
+
+            doc.line(20, 155, 190, 155);
+
+            centerText("KUPON HANYA BERLAKU PADA HARI DICETAK", 165, 10);
+            centerText("TERIMA KASIH ATAS KUNJUNGAN ANDA", 175, 10);
+
+            // Download the PDF
+            doc.save("tiket_antrean_" + data.nomor_antrian + ".pdf");
+
+            // Add success notification (optional)
+            Swal.fire({
+                title: 'Suksess!',
+                text: 'Tiket antrian berhasil diunduh',
+                icon: 'success',
+                timer: 2000,
+                showConfirmButton: false
+            });
+        } catch (error) {
+            console.error('Error creating PDF:', error);
+
+            // Show error with SweetAlert2
+            Swal.fire({
+                title: 'Error!',
+                text: 'Terjadi kesalahan saat membuat PDF: ' + error.message,
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        }
+    }
+</script>
+
+    {{-- <script>
+        // Modal activation script
+        window.showReservasiModal = function(poliId, poliName) {
+
+            // Get the modal element
+            let reservasiModal = new bootstrap.Modal(document.getElementById("reservasiModal"));
+
+            // Update the poli input placeholder with the selected poli name
+            let poliInput = document.getElementById("poliInput");
+            if (poliInput) {
+                poliInput.placeholder = poliName;
+
+                // You can also set it as a value if you want it to show up more clearly
+                poliInput.value = poliName;
+            }
+
+            // Store the poliId for form submission if needed
+            if (poliInput) {
+                poliInput.dataset.poliId = poliId;
+            }
+
+            // Show the modal
+            reservasiModal.show();
+        };
+
+        // Other scripts...
+    </script> --}}
 
     <script src="assets/js/main.js"></script>
 </body>
