@@ -9,6 +9,8 @@
     <meta name="description" content="Mediax - Health & Medical HTML Template">
     <meta name="keywords" content="Mediax - Health & Medical HTML Template">
     <meta name="robots" content="INDEX,FOLLOW">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -24,10 +26,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?
-        family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&
-        family=Outfit:wght@300;400;500;600;700;800;900&
-        family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Outfit:wght@300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
     <!--==============================
@@ -47,6 +46,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- ...existing code... -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
@@ -70,6 +71,8 @@
                     <form id="reservasiForm" class="needs-validation" novalidate method="POST" action="{{ route('reservasi.store') }}">
                         @csrf
                         <input type="hidden" id="poliIdInput" name="poli_id" value="">
+                        <input type="hidden" id="jamBukaInput" name="jam_buka" value="">
+                        <input type="hidden" id="jamTutupInput" name="jam_tutup" value="">
 
                         <div class="row justify-content-center mt-3">
                             <div class="col-12 mb-3">
@@ -85,6 +88,7 @@
                                 <div class="invalid-feedback">
                                     Silakan pilih tanggal kunjungan!
                                 </div>
+                                <small class="text-muted">Waktu server: WIB (GMT+7)</small>
                             </div>
 
                             <div class="col-12 mb-3">
@@ -109,79 +113,7 @@
         </div>
     </div>
 </div>
-    <!-- Modal detailModal
-    <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
-        <div class="modal-dialog custom-modal-size-2 modal-dialog-centered">
-            <div class="modal-content p-3">
-                <div class="modal-body d-flex">
-                    <div class="col-3">
-                        <img id="detailImage" src="" class="img-fluid detail-image" alt="Detail Foto">
-                    </div>
-                    <div class="col-9">
-                        <div class="dr-bio">
-                            <h5 id="doctorName" class="mb-1">DR. Lisa</h5>
-                            <p class="mb-1 biru title-2">Dokter Gigi</p>
-                        </div>
-                        <p class="mb-2">Jadwal Praktek</p>
-                        <div class="row mb-2">
-                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 day" data-day="senin">Senin
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 day" data-day="selasa">Selasa
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 day" data-day="rabu">Rabu
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 day" data-day="kamis">Kamis
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 day" data-day="jumat">Jumat
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 day" data-day="sabtu">Sabtu
-                            </div>
-                        </div>
-                        <div class="row mt-2 mb-4">
-                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 time" data-day="senin">14.00-16.00
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 time" data-day="selasa">14.00-16.00
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 time" data-day="rabu">14.00-16.00
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 time" data-day="kamis">14.00-16.00
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 time" data-day="jumat">
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 text-center border-custom mx-1 time" data-day="sabtu">14.00-16.00
-                            </div>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="col">
-                                <button type="button" class="btn btn-custom">Reservasi</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
-    <!--[if lte IE 9]>
-    	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  	<![endif]-->
-
-
-    <!--********************************
-   		Code Start From Here
-	******************************** -->
-
-    <!--==============================
-     Preloader
-  ==============================-->
-
-    <!-- <div class="popup-search-box d-none d-lg-block">
-        <button class="searchClose"><i class="fal fa-times"></i></button>
-        <form action="#">
-            <input type="text" placeholder="What are you looking for?">
-            <button type="submit"><i class="fal fa-search"></i></button>
-        </form>
-    </div> -->
     <header class="th-header header-layout1">
         <div class="header-top" style="background-color: transparent;">
             <div class="container">
@@ -396,11 +328,16 @@ Hero Area
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.js"></script>
     <!-- Bootstrap Js File -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- First Script Block -->
+
+<!-- Modified Reservation Modal Script -->
 <script>
     function showReservasiModal(poliId, poliName, jamBuka, jamTutup, kuotaTersisa) {
         // Set poli_id di input hidden
         document.getElementById('poliIdInput').value = poliId;
+
+        // Store jam operasional in hidden inputs
+        document.getElementById('jamBukaInput').value = jamBuka;
+        document.getElementById('jamTutupInput').value = jamTutup;
 
         // Tampilkan nama poli di input teks
         document.getElementById('poliInput').value = poliName;
@@ -437,7 +374,7 @@ Hero Area
     }
 </script>
 
-<!-- Reservation Script -->
+<!-- Improved Reservation System Script -->
 <script>
     // Reservation handling script for KlikAntri
     document.addEventListener("DOMContentLoaded", function() {
@@ -521,6 +458,7 @@ Hero Area
         return `${year}-${month}-${day}`;
     }
 
+    // Modified function with time validation improvement
     function handleReservationSubmit(event) {
         // Get form elements
         const poliInput = document.getElementById("poliInput");
@@ -528,6 +466,8 @@ Hero Area
         const alasanInput = document.getElementById("nama");
         const downloadPDFBtn = document.getElementById("downloadPDF");
         const reservasiForm = document.getElementById("reservasiForm");
+        const jamBuka = document.getElementById("jamBukaInput").value;
+        const jamTutup = document.getElementById("jamTutupInput").value;
 
         // Validate required fields
         if (!alasanInput.value.trim()) {
@@ -543,6 +483,47 @@ Hero Area
 
             alasanInput.focus();
             return;
+        }
+
+        // Check time restrictions only for same-day reservations
+        const selectedDate = new Date(tanggalSelect.value);
+        const today = new Date();
+
+        // Reset date portions to compare only the dates
+        const todayDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+        const selectedDateOnly = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate());
+
+        if (selectedDateOnly.getTime() === todayDate.getTime()) {
+            // Only apply time restriction for today's reservations
+            const currentHour = today.getHours();
+            const currentMinute = today.getMinutes();
+
+            // Parse operational hours
+            const openTimeParts = jamBuka.split(':').map(Number);
+            const closeTimeParts = jamTutup.split(':').map(Number);
+
+            const openHour = openTimeParts[0];
+            const openMinute = openTimeParts[1] || 0;
+            const closeHour = closeTimeParts[0];
+            const closeMinute = closeTimeParts[1] || 0;
+
+            // Convert to minutes for easier comparison
+            const currentTimeMinutes = (currentHour * 60) + currentMinute;
+            const openTimeMinutes = (openHour * 60) + openMinute;
+            const closeTimeMinutes = (closeHour * 60) + closeMinute;
+
+            if (currentTimeMinutes < openTimeMinutes || currentTimeMinutes > closeTimeMinutes) {
+                event.preventDefault();
+
+                Swal.fire({
+                    title: 'Informasi',
+                    text: `Reservasi untuk hari ini hanya dapat dilakukan pada jam operasional: ${jamBuka} - ${jamTutup}`,
+                    icon: 'info',
+                    confirmButtonText: 'OK'
+                });
+
+                return;
+            }
         }
 
         // Form is valid, proceed with submission
@@ -630,57 +611,7 @@ Hero Area
     // Replace this event listener to use SweetAlert2
     document.getElementById('reservasiForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Mencegah submit default
-
-        let formData = new FormData(this);
-
-        fetch(this.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Replace alert with SweetAlert2
-                Swal.fire({
-                    title: 'Berhasil!',
-                    text: 'Reservasi berhasil dibuat!',
-                    icon: 'success',
-                    confirmButtonText: 'OK'
-                });
-
-                // Panggil fungsi untuk membuat PDF
-                createPDF({
-                    alasan: data.data.alasan,
-                    poli_name: data.data.poli_name,
-                    tanggal_text: data.data.tanggal,
-                    nomor_antrian: data.data.nomor_antrian
-                });
-
-                // REMOVED REDIRECT CODE HERE
-                // Now the user will stay on the same page
-            } else {
-                // Replace alert with SweetAlert2
-                Swal.fire({
-                    title: 'Gagal!',
-                    text: data.message || 'Terjadi kesalahan saat membuat reservasi.',
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                });
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            // Replace alert with SweetAlert2
-            Swal.fire({
-                title: 'Error!',
-                text: 'Terjadi kesalahan saat mengirim data. Silakan coba lagi.',
-                icon: 'error',
-                confirmButtonText: 'OK'
-            });
-        });
+        handleReservationSubmit(event);
     });
 
     // Enhanced PDF generation function
@@ -747,7 +678,7 @@ Hero Area
 
             // Add success notification (optional)
             Swal.fire({
-                title: 'Suksess!',
+                title: 'Sukses!',
                 text: 'Tiket antrian berhasil diunduh',
                 icon: 'success',
                 timer: 2000,
@@ -766,34 +697,6 @@ Hero Area
         }
     }
 </script>
-
-    {{-- <script>
-        // Modal activation script
-        window.showReservasiModal = function(poliId, poliName) {
-
-            // Get the modal element
-            let reservasiModal = new bootstrap.Modal(document.getElementById("reservasiModal"));
-
-            // Update the poli input placeholder with the selected poli name
-            let poliInput = document.getElementById("poliInput");
-            if (poliInput) {
-                poliInput.placeholder = poliName;
-
-                // You can also set it as a value if you want it to show up more clearly
-                poliInput.value = poliName;
-            }
-
-            // Store the poliId for form submission if needed
-            if (poliInput) {
-                poliInput.dataset.poliId = poliId;
-            }
-
-            // Show the modal
-            reservasiModal.show();
-        };
-
-        // Other scripts...
-    </script> --}}
 
     <script src="assets/js/main.js"></script>
 </body>
